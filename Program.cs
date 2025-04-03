@@ -14,5 +14,8 @@ int rollResult = die.Roll(20);
 System.Console.WriteLine($"You rolled a dice value of {rollResult}");
 
 
+Game game = new Game();
+game.StartGame();
+
 
 
