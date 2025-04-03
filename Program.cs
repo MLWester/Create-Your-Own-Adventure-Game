@@ -2,6 +2,8 @@
 
 // Call test from WeaponTest.cs (no conflict now)
 WeaponTest.RunWeaponUnitTests();
+DieTest tester = new DieTest();
+tester.RunAllTests();
 
 
 
