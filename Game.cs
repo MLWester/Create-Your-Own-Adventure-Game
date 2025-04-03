@@ -1,6 +1,6 @@
 public class Game
 {
-    private Die die;
+    private Die? die;
     //private Dragon dragon;
 
     public void StartGame()
