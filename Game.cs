@@ -1,7 +1,10 @@
 public class Game
 {
     private Die? die;
-    //private Dragon dragon;
+    // I have commented out classes until they are implemented
+    //private Dragon? dragon;
+    //private Messages? messages;
+    //private Player? player;
 
     public void StartGame()
     {
@@ -33,5 +36,34 @@ public class Game
         }
 
         Console.WriteLine("Character creation starting...");
+        //messages = new Messages();
+        //messages.SetCurrentLanguage("English");
+        //messages.ReadDictionary("english.txt");
+
+        //Console.WriteLine(messages.GetMessage(1)); // welcome
+        //Console.WriteLine(messages.GetMessage(2)); // menu
+
+        //Console.WriteLine(messages.GetMessage(3)); // "What is your name?"
+        //string name = Console.ReadLine()!;
+
+        //Console.WriteLine(messages.GetMessage(4)); // "Choose your race:"
+        //string race = Console.ReadLine()!;
+
+        //Console.WriteLine(messages.GetMessage(5)); // "Choose your occupation:"
+        //string occupation = Console.ReadLine()!;
+
+        // Create player
+        //player = new Player(name, race, occupation);
+
+        //Console.WriteLine("Character successfully created!");
+        //Console.WriteLine(player.DisplayStats());
+
+        // Continue to combat
+        //Combat combat = new Combat(player, dragon);
+        //combat.PlayerAttacksDragonSequence();
+        //combat.DragonAttacksPlayerSequence();
+
+        // End game
+        //EndGame();
     }
 }
