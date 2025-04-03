@@ -4,6 +4,8 @@
 WeaponTest.RunWeaponUnitTests();
 DieTest tester = new DieTest();
 tester.RunAllTests();
+GameTest gameTest = new GameTest();
+gameTest.RunAllTests();
 
 
 
@@ -13,6 +15,9 @@ Die die = new Die();
 int rollResult = die.Roll(20);
 System.Console.WriteLine($"You rolled a dice value of {rollResult}");
 
+Console.WriteLine("\n=== Game Start ===\n");
+Game game = new Game();
+game.StartGame();
 
 
 
