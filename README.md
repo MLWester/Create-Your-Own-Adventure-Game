@@ -56,6 +56,19 @@ git pull
 git branch -a
 ```
 
+### Someone changed main and I want those changes in my branch
+If you are making changes in your branch and you see some changes in main that you want to pull down into your current branch, for example, someone may have updated Program.cs or added a class you need, use the following git command. 
+
+1. Switch to your remote branch (if you're not already on it):
+```
+git checkout your-branch-name
+```
+2. Pull from origin/main
+```
+git pull origin/main
+```
+This will merge the changes from main into your current branch. If there are conflicts, Git will notify you, and you'll need to resolve them manually before completing the merge.
+
 ### Undo uncommitted changes and revert back to main: 
 Oh No! I have royally messed up my local branch and want to revert it back to the latest committed state. Use this only if you made a lot of changes (but not yet pushed to GitHub yet), messed up things and want to revert back to the most current files on your remote branch. This command will discard all uncommitted changes in your working directory and staging area.
 ```
