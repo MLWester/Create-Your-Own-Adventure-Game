@@ -31,6 +31,15 @@ Put your .cs files in the root folder, which is the same folder where Program.cs
 ## Do we need a namespace? 
 Not needed. For this simple app, you are using "top-level statements" instead of namespaces. Just put all your .cs files in the same root folder and your code will find the other classes' methods. Ask AI what "top-level statements" are to learn more or see Mr. Kareen Dana's ebook on the topic (link below). With top-level statements, the Program.cs file does not need static void Main() syntax. 
 
+## How to use a method in another class? 
+Example of how to use a method in another class. This example assumes a Die class was designed according to the Class Diagram. In your code, type something like the following.
+```
+//Example use of Die class and roll method
+Die die = new Die();
+int rollResult = die.Roll(4);
+System.Console.WriteLine($"You rolled a dice value of {rollResult}");
+```
+
 ## Useful Git Commands
 ```
 git add -A  
