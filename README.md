@@ -14,7 +14,7 @@ dotnet run
 ```
 
 ## Build the App: 
-This command is optional becuase dotnet run will also build the app prior to running the app if needed. But to build the application without running the application, type this command in the terminal. Building the app let's the compiler compile and warn you of any compile errors or problems.
+This command is optional because dotnet run will also build the app prior to running the app if needed. But to build the application without running the application, type this command in the terminal. Building the app let's the compiler compile and warn you of any compile errors or problems.
 ```
 dotnet build
 ```
@@ -28,15 +28,9 @@ dotnet run
 ## Where to put your .cs files? 
 Put your .cs files in the root folder, which is the same folder where Program.cs is located. This app is a simple program with only a few .cs file so we do not need complex folder organizations. 
 
-## Use a common namespace in each .cs file
-A namespace lets the .cs files find and use eachother's Class methods. Each .cs file should have the following code just after the using directives (e.g., using System;) Ask AI to learn more about namespaces and best practices. 
+## Do we need a namespace? 
+Not needed. For this simple app, you are using "top-level statements" instead of namespaces. Just put all your .cs files in the same root folder and your code will find the other classes' methods. Ask AI what "top-level statements" are to learn more or see Mr. Kareen Dana's ebook on the topic (link below). With top-level statements, the Program.cs file does not need static void Main() syntax. 
 
-```
-using System;
-
-namespace NabooGame
-
-```
 ## Useful Git Commands
 ```
 git add -A  
@@ -47,10 +41,10 @@ git status
 
 ### Checkout a branch
 ```
-git checkout {branchname}
+git checkout branch-name
 ```
 
-See a list of all branchs. 
+See a list of all branches. 
 ```
 git pull
 git branch -a
@@ -72,8 +66,8 @@ This will merge the changes from main into your current branch. If there are con
 ### Undo uncommitted changes and revert back to main: 
 Oh No! I have royally messed up my local branch and want to revert it back to the latest committed state. Use this only if you made a lot of changes (but not yet pushed to GitHub yet), messed up things and want to revert back to the most current files on your remote branch. This command will discard all uncommitted changes in your working directory and staging area.
 ```
-git fetch {branchName}
-git reset --hard origin/{branchName}
+git fetch branch-name
+git reset --hard origin/branch-name
 ```
 or if you want to revert back to the current files in main: 
 ```
@@ -82,7 +76,7 @@ git reset --hard origin/main
 ```
 Warning: This operation is destructive and cannot be undone. Make sure you are okay with losing any uncommitted changes before running it. Ask AI if you want to know more. 
 
-If you already pushed your changes to GitHub, then you need  different way to revert the committed changes. 
+If you already pushed your changes to GitHub, then you need a different way to revert the committed changes. 
 
 
 ### What are the /bin/ and /obj/ folders? Can I delete the /bin/ and /obj/ folders? What is a .gitignore file? 
