@@ -20,4 +20,7 @@ Game game = new Game();
 game.StartGame();
 
 
-
+//Call test from CharacterTest.cs (no conflict now)
+CharacterTest.RunPlayerUnitTest();
+Console.WriteLine("=== End of Unit Tests ===\n");
+Console.WriteLine("Press any key to exit...");
