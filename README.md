@@ -39,6 +39,20 @@ Die die = new Die();
 int rollResult = die.Roll(4);
 System.Console.WriteLine($"You rolled a dice value of {rollResult}");
 ```
+## Unit Testing
+Dr. Humpherys encourages creating a Tests.cs file for each Class.cs file you create. You should test every method of your class including the gets and sets. This ensures that your class works as intended and others will be able to use your class. Watch these videos on how to manually setup unit testing. Why manual? MSTest and xUnit tests were being very stubborn and refused to install correctly. Therefore, we'll manually create our own unit test files for this less complex game. 
+
+How to manually setup unit testing Video 1. Dr. Humpherys explains unit tests and how to run one. 
+https://wtamu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e016770a-bfd3-442f-8ae3-b2b5002ce3d8
+
+
+How to manually setup unit testing. Video 2. Dr. Humpherys demos creating a new class, creating a new unit test of that class, modifying Program.cs, and running the unit test. 
+https://wtamu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6d8b1a3c-0850-47a4-a524-b2b5002e8f87
+
+
+How to manually setup unit testing. Video 3. Demo of Team Naboo's unit tests following the same method Dr. Humpherys describes. 
+https://wtamu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ccd70e20-73c7-43e5-a789-b2b5002f8cfd
+
 
 ## Useful Git Commands
 ```
