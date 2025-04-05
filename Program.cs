@@ -1,4 +1,9 @@
-﻿Console.WriteLine("=== Manual Unit Test Runner ===\n");
+﻿//Call test from CharacterTest.cs (no conflict now)
+CharacterTest.RunPlayerUnitTest();
+Console.WriteLine("=== End of Unit Tests ===\n");
+Console.WriteLine("Press any key to exit...");
+
+Console.WriteLine("=== Manual Unit Test Runner ===\n");
 
 // Call test from WeaponTest.cs (no conflict now)
 WeaponTest.RunWeaponUnitTests();
@@ -22,7 +27,3 @@ Game game = new Game();
 game.StartGame();
 
 
-//Call test from CharacterTest.cs (no conflict now)
-CharacterTest.RunPlayerUnitTest();
-Console.WriteLine("=== End of Unit Tests ===\n");
-Console.WriteLine("Press any key to exit...");
