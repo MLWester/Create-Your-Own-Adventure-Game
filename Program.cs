@@ -4,6 +4,8 @@
 WeaponTest.RunWeaponUnitTests();
 DieTest tester = new DieTest();
 tester.RunAllTests();
+DragonTests dragonTests = new DragonTests();
+dragonTests.RunAllTests(); // Run all dragon tests
 GameTest gameTest = new GameTest();
 gameTest.RunAllTests();
 
