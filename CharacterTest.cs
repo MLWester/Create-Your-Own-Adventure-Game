@@ -1,4 +1,3 @@
-
 using System;
 
 public static class CharacterTest
@@ -6,7 +5,7 @@ public static class CharacterTest
     public static void RunPlayerUnitTest()
     {
         // Test 1: Create a Player object using the parameterized constructor.
-        Character testCharacter = new Character("TestName", "Human", "Warrior");
+        Character testCharacter = new Character("TestName");
         Console.WriteLine("Test 1: Player Initialization");
         Console.WriteLine(testCharacter.DisplayStats());
         Console.WriteLine();
@@ -41,11 +40,53 @@ public static class CharacterTest
         Console.WriteLine("Test 3 Passed.");
         Console.WriteLine();
 
-        // Test 4: Display taunts.
-        Console.WriteLine("Test 4: Taunts");
+        // Test 4: Roll for stats using Die.
+        Die die = new Die();
+        int strengthRoll = die.Roll(6);
+        int agilityRoll = die.Roll(6);
+        int healthRoll = die.Roll(6);
+        testCharacter.strength = strengthRoll;
+        testCharacter.agility = agilityRoll;
+        testCharacter.health = healthRoll;
+
+        Console.WriteLine("Test 4: Roll for Stats");
+        Console.WriteLine(testCharacter.DisplayStats());
+        if (testCharacter.strength != strengthRoll) Console.WriteLine("Test 4 Failed: Strength roll mismatch.");
+        if (testCharacter.agility != agilityRoll) Console.WriteLine("Test 4 Failed: Agility roll mismatch.");
+        if (testCharacter.health != healthRoll) Console.WriteLine("Test 4 Failed: Health roll mismatch.");
+        Console.WriteLine("Test 4 Passed.");
+        Console.WriteLine();
+
+        // Test 5: Display taunts.
+        Console.WriteLine("Test 5: Taunts");
         Console.WriteLine(testCharacter.MissedMeTaunt());
         Console.WriteLine(testCharacter.WasHitTaunt());
-        Console.WriteLine("Test 4 Passed.");
+        Console.WriteLine("Test 5 Passed.");
+        Console.WriteLine();
+
+        // Test 6: Assign race and verify.
+        Console.WriteLine("Test 6: Assign Race");
+        testCharacter.race = Race.Elf;
+        Console.WriteLine(testCharacter.DisplayStats());
+        if (testCharacter.race != Race.Elf) Console.WriteLine("Test 6 Failed: Race mismatch.");
+        Console.WriteLine("Test 6 Passed.");
+        Console.WriteLine();
+
+        // Test 7: Assign occupation and verify.
+        Console.WriteLine("Test 7: Assign Occupation");
+        testCharacter.occupation = Occupation.Fighter;
+        Console.WriteLine(testCharacter.DisplayStats());
+        if (testCharacter.occupation != Occupation.Fighter) Console.WriteLine("Test 7 Failed: Occupation mismatch.");
+        Console.WriteLine("Test 7 Passed.");
+        Console.WriteLine();
+
+        // Test 8: Verify taunts.
+        Console.WriteLine("Test 8: Verify Taunts");
+        string missedTaunt = testCharacter.MissedMeTaunt();
+        string hitTaunt = testCharacter.WasHitTaunt();
+        if (missedTaunt != "The dragon missed you.") Console.WriteLine("Test 8 Failed: Missed taunt mismatch.");
+        if (hitTaunt != "(Dragon.name) hits you.") Console.WriteLine("Test 8 Failed: Hit taunt mismatch.");
+        Console.WriteLine("Test 8 Passed.");
         Console.WriteLine();
     }
 }

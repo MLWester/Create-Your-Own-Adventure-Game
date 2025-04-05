@@ -12,7 +12,7 @@ public class Character
 
     public Character(string name)
     {
-        this.name = name;
+        this.name = name ?? throw new ArgumentNullException(nameof(name));
         this.strength = 0;
         this.agility = 0;
         this.health = 0;
@@ -79,7 +79,7 @@ public class Character
         {
             Console.WriteLine("Invalid input. Please type 'roll' to roll for strength.");
         }
-        int strength = die.Roll();
+        int strength = die.Roll(6);
         if (race == Race.Human || race == Race.Elf || race == Race.Dwarf)
         {
             strength += die.Roll(4); // Add modifier for Human, Elf, Dwarf
@@ -96,7 +96,7 @@ public class Character
         {
             Console.WriteLine("Invalid input. Please type 'roll' to roll for agility.");
         }
-        int agility = die.Roll();
+        int agility = die.Roll(6);
         if (race == Race.Halfling || race == Race.Elf)
         {
             agility += die.Roll(4); // Add modifier for Halfling, Elf
@@ -109,7 +109,7 @@ public class Character
         {
             Console.WriteLine("Invalid input. Please type 'roll' to roll for health points.");
         }
-        int health = die.Roll();
+        int health = die.Roll(6);
         if (race == Race.Human || race == Race.Elf || race == Race.Dwarf)
         {
             health += strength; // Add strength modifier for Human, Elf, Dwarf
@@ -129,14 +129,14 @@ public class Character
 
     public string WasHitTaunt()
     {
-        return $"(Dragon.name) hits you.";
+        return "(Dragon.name) hits you."; // Ensure Dragon.name is handled properly in the future
     }
 
     public string DisplayStats()
     {
         return $"Name: {name}\n" +
-               $"Race: {race}\n" +
-               $"Occupation: {occupation}\n" +
+               $"Race: {race?.ToString() ?? "None"}\n" +
+               $"Occupation: {occupation?.ToString() ?? "None"}\n" +
                $"Strength: {strength}\n" +
                $"Agility: {agility}\n" +
                $"Health: {health}\n" +
