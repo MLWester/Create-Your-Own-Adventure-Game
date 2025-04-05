@@ -2,31 +2,32 @@ using System;
 
 public class Character
 {
-    public string name { get; set; }
-    public Race? race { get; set; } = null;
-    public Occupation? occupation { get; set; } = null;
-    public int strength { get; set; }
-    public int agility { get; set; }
-    public int health { get; set; }
-    public Weapon? weapon { get; set; } = null;
+    private string name { get; set; }
+    private Race? race { get; set; } = null;
+    private Occupation? occupation { get; set; } = null;
+    private int strength { get; set; }
+    private int agility { get; set; }
+    private int health { get; set; }
+    private Weapon? weapon { get; set; } = null;
 
     public Character(string name)
     {
         this.name = name ?? throw new ArgumentNullException(nameof(name));
-        this.strength = 0;
-        this.agility = 0;
-        this.health = 0;
-        this.weapon = null;
+        CreatePlayerOccupation(); // Automatically call this method to create the character's occupation upon instantiation
+        CreatePlayerRace();
+        CreatePlayeStrength();
+        CreatePlayerAgility();
+        CreatePlayerHealth();
     }
 
-    public Character CreatePlayerOccupation()
+    private void CreatePlayerOccupation()
     {
         // Ask for and validate occupation
         Occupation occupation;
         while (true)
         {
             Console.WriteLine("What is the occupation of your character? Fighter, Magician, Thief, or Archer?");
-            string input = Console.ReadLine()?.Trim();
+            string? input = Console.ReadLine()?.Trim();
             if (!string.IsNullOrEmpty(input) && Enum.TryParse(input, true, out occupation) && Enum.IsDefined(typeof(Occupation), occupation))
             {
                 break;
@@ -52,15 +53,21 @@ public class Character
                 break;
         }
 
-        Console.WriteLine($"You have chosen {this.occupation} and your weapon is {this.weapon.Type}.");
-        Console.WriteLine($"Weapon ASCII Art: {this.weapon.AsciiArt}");
+        if (this.weapon != null) // Ensure weapon is not null before accessing its properties
+        {
+            Console.WriteLine($"You have chosen {this.occupation} and your weapon is {this.weapon.Type}.");
+            Console.WriteLine($"Weapon ASCII Art: {this.weapon.AsciiArt}");
+        }
+    }
 
+    private void CreatePlayerRace()
+    {
         // Ask for and validate race
         Race race;
         while (true)
         {
             Console.WriteLine("What is the race of your character? Elf, Human, Dwarf, or Halfling?");
-            string input = Console.ReadLine()?.Trim();
+            string? input = Console.ReadLine()?.Trim();
             if (!string.IsNullOrEmpty(input) && Enum.TryParse(input, true, out race) && Enum.IsDefined(typeof(Race), race))
             {
                 break;
@@ -70,9 +77,11 @@ public class Character
         this.race = race;
 
         Console.WriteLine($"You have chosen {this.race} as your race.");
+    }
 
+    private void CreatePlayeStrength()
+    {
         Die die = new Die();
-
         // Roll for strength
         Console.WriteLine("Next, we are going to roll for strength. Type ‘roll’");
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
@@ -89,7 +98,11 @@ public class Character
             strength -= die.Roll(4); // Subtract modifier for Halfling
         }
         this.strength = strength;
+    }
 
+    private void CreatePlayerAgility()
+    {
+        Die die = new Die();
         // Roll for agility
         Console.WriteLine("Next, we will roll for agility. Type ‘roll’");
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
@@ -102,7 +115,11 @@ public class Character
             agility += die.Roll(4); // Add modifier for Halfling, Elf
         }
         this.agility = agility;
+    }
 
+    private void CreatePlayerHealth()
+    {
+        Die die = new Die();
         // Roll for health
         Console.WriteLine("Next, we will roll for health points. Type ‘roll’");
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
@@ -118,8 +135,6 @@ public class Character
 
         // Display character stats
         Console.WriteLine($"Your character stats are: Strength: {this.strength}, Agility: {this.agility}, Health: {this.health}");
-
-        return this;
     }
 
     public string MissedMeTaunt()
@@ -141,6 +156,66 @@ public class Character
                $"Agility: {agility}\n" +
                $"Health: {health}\n" +
                $"Weapon: {(weapon != null ? weapon.Type : "None")}";
+    }
+
+    public Weapon? GetWeapon()
+    {
+        return weapon;
+    }
+
+    public void SetWeapon(Weapon? weapon)
+    {
+        this.weapon = weapon;
+    }
+
+    public int GetStrength()
+    {
+        return strength;
+    }
+
+    public void SetStrength(int strength)
+    {
+        this.strength = strength;
+    }
+
+    public int GetAgility()
+    {
+        return agility;
+    }
+
+    public void SetAgility(int agility)
+    {
+        this.agility = agility;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void SetHealth(int health)
+    {
+        this.health = health;
+    }
+
+    public Race? GetRace()
+    {
+        return race;
+    }
+
+    public void SetRace(Race? race)
+    {
+        this.race = race;
+    }
+
+    public Occupation? GetOccupation()
+    {
+        return occupation;
+    }
+
+    public void SetOccupation(Occupation? occupation)
+    {
+        this.occupation = occupation;
     }
 }
 
