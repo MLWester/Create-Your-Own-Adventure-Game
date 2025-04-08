@@ -1,33 +1,65 @@
 using System;
 
-public class Dragon {
+public class Dragon
+{
     private string Name { get; set; }
     private int Strength { get; set; }
     private int Health { get; set; }
     private int Agility { get; set; }
     private Weapon Weapon { get; set; }
 
-    private Random random = new Random();
+    private readonly Random random = new Random();
+    private readonly Messages messages;
 
-    public Dragon(string name) {
-        Name = name;
-        Strength = new Die().Roll(20); // Roll for strength
-        Agility = new Die().Roll(20); // Roll for agility
-        Health = new Die().Roll(20);  // Roll for health
-        Weapon = new Weapon("claws", 12, "##"); // Updated weapon initialization
-    }
-    
-    public string MissedMeTaunt() {
-        string[] taunts = { "Missed me, breath of a gnat!", "Is that all you've got? I've seen kittens with more fire in their paws!", "Try harder, human! You're making me yawn!", "Maybe if you squinted harder, you'd actually hit something!" };
-        return taunts[random.Next(taunts.Length)];
-    }
+    // Constructor with Messages dependency
+    public Dragon(string name, Messages messages)
+    {
+        this.Name = name;
+        this.messages = messages;
 
-    public string WasHitTaunt() {
-        string[] taunts = { "Ow! That actually stung a bit!", "Impressive! You might actually be worth toasting...", "That... was unexpected. But I assure you, it won't happen again.", "Well, I'll be! You have more bite than I thought!" };
-        return taunts[random.Next(taunts.Length)];
+        Die die = new Die();
+        Strength = die.Roll(20);  // Roll for strength
+        Agility = die.Roll(20);   // Roll for agility
+        Health = die.Roll(20);    // Roll for health
+        Weapon = new Weapon("claws", 12, "##");
     }
 
-    public string DisplayStats() {
-        return $"Name: {Name}, Strength: {Strength}, Health: {Health}, Agility: {Agility}, Weapon: {Weapon.Type} (Max Damage: {Weapon.MaxDamage})";
+    // Returns a random taunt when the dragon is missed
+    public string MissedMeTaunt()
+    {
+        int[] missedTauntKeys = { 301, 302, 303, 304 };
+        int randomKey = missedTauntKeys[random.Next(missedTauntKeys.Length)];
+        return messages.GetMessage(randomKey);
     }
+
+    // Returns a random taunt when the dragon is hit
+    public string WasHitTaunt()
+    {
+        int[] hitTauntKeys = { 305, 306, 307, 308 };
+        int randomKey = hitTauntKeys[random.Next(hitTauntKeys.Length)];
+        return messages.GetMessage(randomKey);
+    }
+
+    // Displays the dragon's stats using a formatted message
+    public string DisplayStats()
+    {
+        return string.Format(
+            messages.GetMessage(309),
+            Name,
+            Strength,
+            Health,
+            Agility,
+            Weapon.Type,
+            Weapon.MaxDamage
+        );
+    }
+
+    // Getters for use in combat or test logic
+    public int GetStrength() => Strength;
+    public int GetHealth() => Health;
+    public int GetAgility() => Agility;
+    public string GetName() => Name;
+    public Weapon GetWeapon() => Weapon;
+
+    public void SetHealth(int hp) => Health = hp;
 }

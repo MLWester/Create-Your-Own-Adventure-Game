@@ -1,19 +1,31 @@
+using System;
+
 public class Player : Character
 {
-    public Occupation? Occupation { get; set; }
-    public Weapon? Weapon { get; set; }
-    public Race? Race { get; set; }
-    public int Strength { get; set; }
-    public int Agility { get; set; }
-    public int Health { get; set; }
+    public new Occupation? Occupation { get; set; }
+    public new Weapon? Weapon { get; set; }
+    public new Race? Race { get; set; }
+    public new int Strength { get; set; }
+    public new int Agility { get; set; }
+    public new int Health { get; set; }
 
-    public Player(string name) : base(name)
+    private Messages Messages { get; }
+
+    public Player(string name, Messages messages) : base(name, messages)
     {
+        Messages = messages;
+
+        // Initialize default values
         Strength = 0;
         Agility = 0;
         Health = 0;
         Weapon = null;
         Occupation = null;
         Race = null;
+
+        // Trigger the character creation logic
+        CreateCharacterInteractive();
     }
+
+    // If needed, you can override methods from Character class here later
 }

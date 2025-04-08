@@ -1,69 +1,52 @@
+using System;
+
 public class Game
 {
-    private Die? die;
-    // I have commented out classes until they are implemented
-    //private Dragon? dragon;
-    //private Messages? messages;
-    //private Player? player;
+    private Die die;
+    private Messages messages;
+    private Character? player;
+
+    public Game(Messages messages)
+    {
+        this.messages = messages ?? throw new ArgumentNullException(nameof(messages));
+        this.die = new Die();
+    }
 
     public void StartGame()
     {
-        die = new Die();
-        //dragon = new Dragon();
-
-        Console.WriteLine("Welcome to Choose Your Adventure Game");
+        Console.WriteLine(messages.GetMessage(201)); // Welcome
 
         string input;
 
         // Loop until valid input is received
         while (true)
         {
-            Console.WriteLine("Choose: 1. Create Character or 2. Exit. Type '1' or '2'");
-            input = Console.ReadLine()!;
+            Console.WriteLine(messages.GetMessage(202)); // Menu prompt
+            input = Console.ReadLine()?.Trim() ?? "";
 
             if (input == "1" || input == "2")
-            {
-                break; // valid input, exit loop
-            }
+                break;
 
-            Console.WriteLine("Invalid input. Please enter '1' or '2'.");
+            Console.WriteLine(messages.GetMessage(203)); // Invalid input
         }
 
         if (input == "2")
         {
-            Console.WriteLine("Exiting game...");
+            Console.WriteLine(messages.GetMessage(204)); // Exit message
             return;
         }
 
-        Console.WriteLine("Character creation starting...");
-        //messages = new Messages();
-        //messages.SetCurrentLanguage("English");
-        //messages.ReadDictionary("english.txt");
+        Console.WriteLine(messages.GetMessage(205)); // Starting character creation
+        Console.WriteLine(messages.GetMessage(206)); // Ask for name
+        string name = Console.ReadLine() ?? "Unnamed Hero";
 
-        //Console.WriteLine(messages.GetMessage(1)); // welcome
-        //Console.WriteLine(messages.GetMessage(2)); // menu
+        player = new Character(name, messages);
+        player.CreateCharacterInteractive();
 
-        //Console.WriteLine(messages.GetMessage(3)); // "What is your name?"
-        //string name = Console.ReadLine()!;
+        Console.WriteLine(messages.GetMessage(209)); // Character successfully created
+        Console.WriteLine("\n--- Final Stats ---");
+        Console.WriteLine(player.DisplayStats());
 
-        //Console.WriteLine(messages.GetMessage(4)); // "Choose your race:"
-        //string race = Console.ReadLine()!;
-
-        //Console.WriteLine(messages.GetMessage(5)); // "Choose your occupation:"
-        //string occupation = Console.ReadLine()!;
-
-        // Create player
-        //player = new Player(name, race, occupation);
-
-        //Console.WriteLine("Character successfully created!");
-        //Console.WriteLine(player.DisplayStats());
-
-        // Continue to combat
-        //Combat combat = new Combat(player, dragon);
-        //combat.PlayerAttacksDragonSequence();
-        //combat.DragonAttacksPlayerSequence();
-
-        // End game
-        //EndGame();
+        // Future: Continue to dragon combat, etc.
     }
 }
