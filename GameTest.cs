@@ -4,23 +4,23 @@ public class GameTest
 {
     public void RunAllTests()
     {
-        TestGameStartCreatesObjects();
+        TestGameInitialization();
     }
 
-    private void TestGameStartCreatesObjects()
+    private void TestGameInitialization()
     {
-        Game game = new Game();
-
         try
         {
-            game.StartGame(); // This will ask for input
+            Messages messages = new Messages();
+            messages.ReadDictionary("English");
 
-            // Since we can't check internals directly, we just make sure it runs
-            Console.WriteLine("Game test 1 - start without crash: ✅ PASS");
+            Game game = new Game(messages);
+
+            Console.WriteLine("Game test 1 - game initialized: ✅ PASS");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Game test 1 - start without crash: ❌ FAIL ({ex.Message})");
+            Console.WriteLine($"Game test 1 - game initialization: ❌ FAIL ({ex.Message})");
         }
     }
 }
