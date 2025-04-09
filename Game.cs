@@ -48,5 +48,9 @@ public class Game
         Console.WriteLine(player.DisplayStats());
 
         // Future: Continue to dragon combat, etc.
+
+        // ===== Begin Combat Section =====
+        Dragon dragon = new Dragon("Smaug", messages);
+        Combat.AttackSequence(player, dragon, messages);
     }
 }
