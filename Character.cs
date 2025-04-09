@@ -2,14 +2,14 @@ using System;
 
 public class Character
 {
-    private string name { get; set; }
-    private Race? race { get; set; } = null;
-    private Occupation? occupation { get; set; } = null;
-    private int strength { get; set; }
-    private int agility { get; set; }
-    private int health { get; set; }
-    private Weapon? weapon { get; set; } = null;
-    private Messages messages;
+    public string name { get; set; }
+    public Race? race { get; set; } = null;
+    public Occupation? occupation { get; set; } = null;
+    public int strength { get; set; }
+    public int agility { get; set; }
+    public int health { get; set; }
+    public Weapon? weapon { get; set; } = null;
+    public Messages messages;
 
     // Constructor only assigns name and messages — does not auto-run creation steps
     public Character(string name, Messages messages)
