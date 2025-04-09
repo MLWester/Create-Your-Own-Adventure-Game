@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class MessagesTests
 {
@@ -6,28 +7,37 @@ public class MessagesTests
     {
         Console.WriteLine("=== Messages System Tests ===\n");
 
-        TestMessageRetrieval("English");
-        TestMessageRetrieval("French");
-        TestMessageRetrieval("Spanish");
+        string[] languages = { "English", "French", "Spanish" };
+        int[] keysToTest = { 101, 105, 114, 201, 301, 310, 314 }; // Core message keys
+
+        foreach (string language in languages)
+        {
+            TestLanguageMessages(language, keysToTest);
+        }
+
         TestFallbackMessage();
-        
+
         Console.WriteLine("\n=== End of Messages System Tests ===\n");
     }
 
-    private void TestMessageRetrieval(string language)
+    private void TestLanguageMessages(string language, int[] keys)
     {
         Messages messages = new Messages();
         messages.ReadDictionary(language);
 
-        // Try to retrieve a few known keys
-        string welcome = messages.GetMessage(201);
-        string menu = messages.GetMessage(202);
-        string invalid = messages.GetMessage(203);
-
-        Console.WriteLine($"Language: {language}");
-        Console.WriteLine($"Message 201 (Welcome): {(string.IsNullOrWhiteSpace(welcome) ? "❌ FAIL" : "✅ PASS")} - {welcome}");
-        Console.WriteLine($"Message 202 (Menu): {(string.IsNullOrWhiteSpace(menu) ? "❌ FAIL" : "✅ PASS")} - {menu}");
-        Console.WriteLine($"Message 203 (Invalid input): {(string.IsNullOrWhiteSpace(invalid) ? "❌ FAIL" : "✅ PASS")} - {invalid}");
+        Console.WriteLine($"--- Testing Messages for Language: {language} ---");
+        foreach (int key in keys)
+        {
+            string msg = messages.GetMessage(key);
+            if (string.IsNullOrWhiteSpace(msg))
+            {
+                Console.WriteLine($"Key {key}: ❌ FAIL - Missing or empty message.");
+            }
+            else
+            {
+                Console.WriteLine($"Key {key}: ✅ PASS - {msg}");
+            }
+        }
         Console.WriteLine();
     }
 
@@ -36,10 +46,10 @@ public class MessagesTests
         Messages messages = new Messages();
         messages.ReadDictionary("English");
 
-        string fallback = messages.GetMessage(999); // Invalid key
-        bool result = fallback.Contains("Missing message");
+        string result = messages.GetMessage(999); // Invalid key
+        bool fallbackWorks = result.Contains("Missing message");
 
-        Console.WriteLine("Fallback Message Test:");
-        Console.WriteLine(result ? $"✅ PASS - {fallback}" : $"❌ FAIL - {fallback}");
+        Console.WriteLine("--- Fallback Message Test ---");
+        Console.WriteLine(fallbackWorks ? $"✅ PASS - {result}" : $"❌ FAIL - {result}");
     }
 }

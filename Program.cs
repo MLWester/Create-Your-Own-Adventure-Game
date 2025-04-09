@@ -6,46 +6,45 @@ public class Program
     {
         Console.WriteLine("=== Manual Unit Test Runner ===\n");
 
-        // Run character unit tests
-        CharacterTest.RunPlayerUnitTest();
-        Console.WriteLine("=== End of Character Unit Tests ===\n");
-
-        // Run weapon unit tests
-        WeaponTest.RunWeaponUnitTests();
-
-        // Run Die tests
-        DieTest tester = new DieTest();
-        tester.RunAllTests();
-
-        // Run dragon tests
-        DragonTests dragonTests = new DragonTests();
-        dragonTests.RunAllTests();
-
-        // Run game tests
-        GameTest gameTest = new GameTest();
-        gameTest.RunAllTests();
-
-        // Run messages system tests
+        // 1. Run message system tests (multi-language support)
         MessagesTests msgTests = new MessagesTests();
         msgTests.RunAllTests();
 
-        // Example use of Die class and roll method
+        // 2. Run weapon unit tests
+        WeaponTest.RunWeaponUnitTests();
+
+        // 3. Run Die tests
+        DieTest dieTest = new DieTest();
+        dieTest.RunAllTests();
+
+        // 4. Run character unit tests
+        CharacterTest.RunPlayerUnitTest();
+        Console.WriteLine("=== End of Character Unit Tests ===\n");
+
+        // 5. Run dragon unit tests
+        DragonTests dragonTests = new DragonTests();
+        dragonTests.RunAllTests();
+
+        // 6. Run game startup test
+        GameTest gameTest = new GameTest();
+        gameTest.RunAllTests();
+
+        // 7. Run combat system test
+        CombatTests.RunAttackSequenceTest();
+
+        // 8. Example use of Die class
         Die die = new Die();
         int rollResult = die.Roll(20);
         Console.WriteLine($"You rolled a dice value of {rollResult}");
 
-        // Start the actual game
+        // 9. Start the actual game
         Console.WriteLine("\n=== Game Start ===\n");
         Messages messages = new Messages();
-        messages.ReadDictionary("English"); // Change to "French" or "Spanish" to test
-
+        messages.ReadDictionary("English"); // You can change to "French" or "Spanish"
         Game game = new Game(messages);
         game.StartGame();
 
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
-
-        //Run combat tests
-        CombatTests.RunAttackSequenceTest();
     }
 }
