@@ -44,5 +44,8 @@ public class Program
 
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
+
+        //Run combat tests
+        CombatTests.RunAttackSequenceTest();
     }
 }
