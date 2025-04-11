@@ -15,8 +15,7 @@ public class Branches
 
     public void DisplayAdventureMenu()
     {
-        Console.WriteLine(messages.GetMessage(201)); // Intro message
-        Console.WriteLine(messages.GetMessage(202)); // Menu options
+        Console.WriteLine(messages.GetMessage(401)); // Adventure menu
         string choice = Console.ReadLine()?.ToLower();
 
         switch (choice)
@@ -39,21 +38,21 @@ public class Branches
 
     private void SouthPath()
     {
-        Console.WriteLine(messages.GetMessage(204)); // South path message
+        Console.WriteLine(messages.GetMessage(403)); // South path message
+        // I don't think this message needs to be here. It says "Character creation starting..." We could just let it go back to the menu or change it.
         Console.WriteLine(messages.GetMessage(205)); // Return to menu
         DisplayAdventureMenu();
     }
 
     private void NorthPath()
     {
-        Console.WriteLine(messages.GetMessage(206)); // North path intro
-        Console.WriteLine("You have chosen to take the North path. Prepare yourself!"); // Confirmation message
+        Console.WriteLine(messages.GetMessage(402)); // North path intro
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(string.Format(messages.GetMessage(207), dragon.GetName())); // Dragon intro
+        Console.WriteLine(string.Format(messages.GetMessage(405), dragon.GetName())); // Dragon intro
         Console.ResetColor();
-        Console.WriteLine(messages.GetMessage(208)); // Dragon stats
+        //Console.WriteLine(messages.GetMessage(208)); // Dragon stats
         Console.WriteLine(dragon.DisplayStats());
-        Console.WriteLine(messages.GetMessage(209)); // Retreat or attack
+        Console.WriteLine("Options: “r” for retreat and “a” for attack"); // this retreat option needs to be redone so that the corresponding message from Messages.cs but I'm don't want to mess anything up by merging the main branch into it yet.
 
         string choice = Console.ReadLine()?.ToLower();
         if (choice == "r")

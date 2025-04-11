@@ -55,7 +55,14 @@ public class Messages
             [315] = "{0} hits you.",
             [316] = "You successfully defended the attack.",
             [317] = "The dragon's attack delivers {0} damage points. Your health points is now {1}.",
-            [318] = "You hastily retreat licking your wounds..."
+            [318] = "You hastily retreat licking your wounds...",
+
+            // Branches
+            [401] = "You are walking in the mountains...Enter 'n' for North. Enter 's' for South. Enter 'e' for exit game",
+            [402] = "You take the North path...The dragon has a hoard of hold behind it.",
+            [403] = "You take the South path...still bored.",
+            [404] = "Your magic ring gives you the stats on the dragon.",
+            [405] = "The dragon says 'I am {0}. Leave or perish!"
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -100,7 +107,10 @@ public class Messages
             [315] = "{0} vous frappe.",
             [316] = "Vous avez défendu avec succès l'attaque.",
             [317] = "L'attaque du dragon inflige {0} points de dégâts. Vos points de vie sont maintenant {1}.",
-            [318] = "Vous battez en retraite en léchant vos blessures..."
+            [318] = "Vous battez en retraite en léchant vos blessures...",
+
+            // Branches
+            [401] = "Vous marchez en montagne… Tapez « n » pour Nord. Tapez « s » pour Sud. Tapez « e » pour quitter le jeu."
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -145,7 +155,10 @@ public class Messages
             [315] = "{0} te golpea.",
             [316] = "Has defendido con éxito el ataque.",
             [317] = "El ataque del dragón inflige {0} puntos de daño. Tus puntos de salud ahora son {1}.",
-            [318] = "Te retiras rápidamente lamiendo tus heridas..."
+            [318] = "Te retiras rápidamente lamiendo tus heridas...",
+
+            // Branches
+            [401] = "Estás caminando por las montañas... Introduce 'n' para el norte. Introduce 's' para el sur. Introduce 'e' para salir del juego."
         };
     }
 
