@@ -55,7 +55,11 @@ public class Messages
             [315] = "{0} hits you.",
             [316] = "You successfully defended the attack.",
             [317] = "The dragon's attack delivers {0} damage points. Your health points is now {1}.",
-            [318] = "You hastily retreat licking your wounds..."
+            [318] = "You hastily retreat licking your wounds...",
+            [319] = "Options: “r” for retreat and “a” for attack",
+            [320] = "You have been defeated.",
+            [321] = "{0} attacks you!",
+            [322] = "The dragon missed you."
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -100,7 +104,11 @@ public class Messages
             [315] = "{0} vous frappe.",
             [316] = "Vous avez défendu avec succès l'attaque.",
             [317] = "L'attaque du dragon inflige {0} points de dégâts. Vos points de vie sont maintenant {1}.",
-            [318] = "Vous battez en retraite en léchant vos blessures..."
+            [318] = "Vous battez en retraite en léchant vos blessures...",
+            [319] = "Options : « r » pour retraite et « a » pour attaque",
+            [320] = "Vous avez été vaincu.",
+            [321] = "{0} vous attaque !",
+            [322] = "Le dragon t'a manqué."
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -145,7 +153,12 @@ public class Messages
             [315] = "{0} te golpea.",
             [316] = "Has defendido con éxito el ataque.",
             [317] = "El ataque del dragón inflige {0} puntos de daño. Tus puntos de salud ahora son {1}.",
-            [318] = "Te retiras rápidamente lamiendo tus heridas..."
+            [318] = "Te retiras rápidamente lamiendo tus heridas...",
+            [319] = "Opciones: “r” para retirada y “a” para ataque",
+            [320] = "Has sido derrotado.",
+            [321] = "{0} te ataca!",
+            [322] = "El dragón te extrañó."
+
         };
     }
 
@@ -163,5 +176,65 @@ public class Messages
         }
 
         return $"[Missing message for key {key}]";
+    }
+
+    // This method is used to get the localized occupation map based on the current language.
+    // It returns a dictionary where the key is the localized name of the occupation and the value is the enum value.
+    public Dictionary<string, Occupation> GetLocalizedOccupationMap()
+    {
+        return CurrentLanguage switch
+        {
+            "French" => new Dictionary<string, Occupation>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Guerrier"] = Occupation.Fighter,
+                ["Magicien"] = Occupation.Magician,
+                ["Voleur"] = Occupation.Thief,
+                ["Archer"] = Occupation.Archer
+            },
+            "Spanish" => new Dictionary<string, Occupation>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Luchador"] = Occupation.Fighter,
+                ["Mago"] = Occupation.Magician,
+                ["Ladrón"] = Occupation.Thief,
+                ["Arquero"] = Occupation.Archer
+            },
+            _ => new Dictionary<string, Occupation>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Fighter"] = Occupation.Fighter,
+                ["Magician"] = Occupation.Magician,
+                ["Thief"] = Occupation.Thief,
+                ["Archer"] = Occupation.Archer
+            }
+        };
+    }
+    
+    // This method is used to get the localized race map based on the current language.
+    // It returns a dictionary where the key is the localized name of the race and the value is the enum value.
+    public Dictionary<string, Race> GetLocalizedRaceMap()
+    {
+        return CurrentLanguage switch
+        {
+            "French" => new Dictionary<string, Race>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Elfe"] = Race.Elf,
+                ["Humain"] = Race.Human,
+                ["Nain"] = Race.Dwarf,
+                ["Halfelin"] = Race.Halfling
+            },
+            "Spanish" => new Dictionary<string, Race>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Elfo"] = Race.Elf,
+                ["Humano"] = Race.Human,
+                ["Enano"] = Race.Dwarf,
+                ["Halfling"] = Race.Halfling
+            },
+            _ => new Dictionary<string, Race>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Elf"] = Race.Elf,
+                ["Human"] = Race.Human,
+                ["Dwarf"] = Race.Dwarf,
+                ["Halfling"] = Race.Halfling
+            }
+        };
     }
 }
