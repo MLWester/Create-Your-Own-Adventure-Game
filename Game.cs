@@ -14,6 +14,24 @@ public class Game
 
     public void StartGame()
     {
+        Console.WriteLine("Choose a language / Choisissez une langue / Elige un idioma:");
+        Console.WriteLine("1. English");
+        Console.WriteLine("2. French");
+        Console.WriteLine("3. Spanish");
+        
+
+        string? langChoice = Console.ReadLine()?.Trim();
+        Console.WriteLine();
+
+        string selectedLang = langChoice switch
+        {
+            "2" => "French",
+            "3" => "Spanish",
+            _ => "English"
+        };
+
+        messages.ReadDictionary(selectedLang);
+
         Console.WriteLine(messages.GetMessage(201)); // Welcome
 
         string input;
@@ -52,5 +70,5 @@ public class Game
         // ===== Begin Combat Section =====
         Dragon dragon = new Dragon("Smaug", messages);
         Combat.AttackSequence(player, dragon, messages);
-    }
+    } 
 }

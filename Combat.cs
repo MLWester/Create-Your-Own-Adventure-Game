@@ -50,7 +50,7 @@ public class Combat
             }
 
             // Dragon's turn to attack
-            Console.WriteLine($"{dragon.GetName()} attacks you!");
+            Console.WriteLine(string.Format(messages.GetMessage(321), dragon.GetName())); // Dragon's turn 
             int dragonAttackRoll = die.Roll(20);
             if (dragonAttackRoll <= dragon.GetStrength())
             {
@@ -69,19 +69,19 @@ public class Combat
 
                     if (player.GetHealth() <= 0)
                     {
-                        Console.WriteLine("You have been defeated.");
+                        Console.WriteLine(messages.GetMessage(320)); // Player is dead
                         return;
                     }
                 }
             }
             else
             {
-                Console.WriteLine("The dragon missed you.");
+                Console.WriteLine(messages.GetMessage(322)); // Dragon misses
             }
 
             // Player decision to retreat or attack
-            Console.WriteLine("Options: “r” for retreat and “a” for attack");
-            string choice = Console.ReadLine()?.ToLower();
+            Console.WriteLine(messages.GetMessage(319)); // Ask if player wants to continue
+            string? choice = Console.ReadLine()?.ToLower();
             if (choice == "r")
             {
                 Console.WriteLine(messages.GetMessage(318));
