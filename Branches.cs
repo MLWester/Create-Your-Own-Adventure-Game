@@ -2,10 +2,21 @@ using System;
 
 public class Branches
 {
+    private Character player;
+    private Dragon dragon;
+    private Messages messages;
+
+    public Branches(Character player, Dragon dragon, Messages messages)
+    {
+        this.player = player;
+        this.dragon = dragon;
+        this.messages = messages;
+    }
+
     public void DisplayAdventureMenu()
     {
-        Console.WriteLine("You are walking in the mountains...");
-        Console.WriteLine("Enter 'n' for North. Enter 's' for South. Enter 'e' for exit game.");
+        Console.WriteLine(messages.GetMessage(201)); // Intro message
+        Console.WriteLine(messages.GetMessage(202)); // Menu options
         string choice = Console.ReadLine()?.ToLower();
 
         switch (choice)
@@ -20,7 +31,7 @@ public class Branches
                 EndGame();
                 break;
             default:
-                Console.WriteLine("Invalid choice. Try again.");
+                Console.WriteLine(messages.GetMessage(203)); // Invalid choice
                 DisplayAdventureMenu();
                 break;
         }
@@ -28,55 +39,47 @@ public class Branches
 
     private void SouthPath()
     {
-        Console.WriteLine("You take the South path... still bored.");
-        Console.WriteLine("Returning to the main menu...");
+        Console.WriteLine(messages.GetMessage(204)); // South path message
+        Console.WriteLine(messages.GetMessage(205)); // Return to menu
         DisplayAdventureMenu();
     }
 
     private void NorthPath()
     {
-        Console.WriteLine("You take the North path... The dragon has a hoard of gold behind it.");
+        Console.WriteLine(messages.GetMessage(206)); // North path intro
+        Console.WriteLine("You have chosen to take the North path. Prepare yourself!"); // Confirmation message
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("The dragon says 'I am the mighty dragon. Leave or perish!'");
+        Console.WriteLine(string.Format(messages.GetMessage(207), dragon.GetName())); // Dragon intro
         Console.ResetColor();
-        Console.WriteLine("Your magic ring gives you the stats on the dragon.");
-        Console.WriteLine("Dragon Stats: Strength: 15, Agility: 10, Health: 20");
-        Console.WriteLine("Do you wish to retreat or attack? Enter 'r' for retreat. Enter 'a' for attack.");
-        string choice = Console.ReadLine()?.ToLower();
+        Console.WriteLine(messages.GetMessage(208)); // Dragon stats
+        Console.WriteLine(dragon.DisplayStats());
+        Console.WriteLine(messages.GetMessage(209)); // Retreat or attack
 
+        string choice = Console.ReadLine()?.ToLower();
         if (choice == "r")
         {
             Retreat();
         }
         else if (choice == "a")
         {
-            Attack();
+            Combat.AttackSequence(player, dragon, messages); // Trigger combat
         }
         else
         {
-            Console.WriteLine("Invalid choice. Try again.");
+            Console.WriteLine(messages.GetMessage(203)); // Invalid choice
             NorthPath();
         }
     }
 
     private void Retreat()
     {
-        Console.WriteLine("You chose to retreat. The dragon lets you go this time.");
-        EndGame();
-    }
-
-    private void Attack()
-    {
-        Console.WriteLine("You chose to attack the dragon!");
-        Console.WriteLine("Combat sequence initiated...");
-        // Simulate combat sequence
-        Console.WriteLine("...combat logic here...");
+        Console.WriteLine(messages.GetMessage(318)); // Retreat message
         EndGame();
     }
 
     private void EndGame()
     {
-        Console.WriteLine("Thank you for playing. The game has ended.");
+        Console.WriteLine(messages.GetMessage(204)); // End game message
         Environment.Exit(0);
     }
 }

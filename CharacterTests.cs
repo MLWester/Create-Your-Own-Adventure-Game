@@ -4,8 +4,11 @@ public static class CharacterTest
 {
     public static void RunPlayerUnitTest()
     {
-        // Test 1: Create a Player object using the parameterized constructor.
-        Character testCharacter = new Character("TestName");
+        Messages messages = new Messages();
+        messages.ReadDictionary("English");
+
+        // Test 1: Create a Character object using the parameterized constructor.
+        Character testCharacter = new Character("TestName", messages);
         Console.WriteLine("Test 1: Player Initialization");
         Console.WriteLine(testCharacter.DisplayStats());
         Console.WriteLine();
@@ -15,14 +18,14 @@ public static class CharacterTest
         testCharacter.SetWeapon(testWeapon); // Use a setter method for weapon
         Console.WriteLine("Test 2: Equip Weapon");
         Console.WriteLine(testCharacter.DisplayStats());
-        if (testCharacter.GetWeapon() != testWeapon) Console.WriteLine("Test 2 Failed: Weapon mismatch."); // Use a getter method for weapon
+        if (testCharacter.GetWeapon() != testWeapon) Console.WriteLine("Test 2 Failed: Weapon mismatch.");
         Console.WriteLine("Test 2 Passed.");
         Console.WriteLine();
 
         // Test 3: Modify stats and verify.
-        testCharacter.SetStrength(5); // Use getter and setter for strength
-        testCharacter.SetAgility(3);   // Use getter and setter for agility
-        testCharacter.SetHealth(-10);    // Use getter and setter for health
+        testCharacter.SetStrength(5);
+        testCharacter.SetAgility(3);
+        testCharacter.SetHealth(-10);
         Console.WriteLine("Test 3: Modify Stats");
         Console.WriteLine(testCharacter.DisplayStats());
         if (testCharacter.GetStrength() == 5) Console.WriteLine("Test 3 Passed: Strength match.");
@@ -36,9 +39,9 @@ public static class CharacterTest
         int strengthRoll = die.Roll(6);
         int agilityRoll = die.Roll(6);
         int healthRoll = die.Roll(6);
-        testCharacter.SetStrength(strengthRoll); // Use setter for strength
-        testCharacter.SetAgility(agilityRoll);   // Use setter for agility
-        testCharacter.SetHealth(healthRoll);    // Use setter for health
+        testCharacter.SetStrength(strengthRoll);
+        testCharacter.SetAgility(agilityRoll);
+        testCharacter.SetHealth(healthRoll);
 
         Console.WriteLine("Test 4: Roll for Stats");
         Console.WriteLine(testCharacter.DisplayStats());
@@ -57,17 +60,17 @@ public static class CharacterTest
 
         // Test 6: Assign race and verify.
         Console.WriteLine("Test 6: Assign Race");
-        testCharacter.SetRace(Race.Elf); // Use a setter method for race
+        testCharacter.SetRace(Race.Elf);
         Console.WriteLine(testCharacter.DisplayStats());
-        if (testCharacter.GetRace() != Race.Elf) Console.WriteLine("Test 6 Failed: Race mismatch."); // Use a getter method for race
+        if (testCharacter.GetRace() != Race.Elf) Console.WriteLine("Test 6 Failed: Race mismatch.");
         Console.WriteLine("Test 6 Passed.");
         Console.WriteLine();
 
         // Test 7: Assign occupation and verify.
         Console.WriteLine("Test 7: Assign Occupation");
-        testCharacter.SetOccupation(Occupation.Fighter); // Use a setter method for occupation
+        testCharacter.SetOccupation(Occupation.Fighter);
         Console.WriteLine(testCharacter.DisplayStats());
-        if (testCharacter.GetOccupation() != Occupation.Fighter) Console.WriteLine("Test 7 Failed: Occupation mismatch."); // Use a getter method for occupation
+        if (testCharacter.GetOccupation() != Occupation.Fighter) Console.WriteLine("Test 7 Failed: Occupation mismatch.");
         Console.WriteLine("Test 7 Passed.");
         Console.WriteLine();
 
@@ -75,8 +78,8 @@ public static class CharacterTest
         Console.WriteLine("Test 8: Verify Taunts");
         string missedTaunt = testCharacter.MissedMeTaunt();
         string hitTaunt = testCharacter.WasHitTaunt();
-        if (missedTaunt != "The dragon missed you.") Console.WriteLine("Test 8 Failed: Missed taunt mismatch.");
-        if (hitTaunt != "(Dragon.name) hits you.") Console.WriteLine("Test 8 Failed: Hit taunt mismatch.");
+        if (missedTaunt != messages.GetMessage(301)) Console.WriteLine("Test 8 Failed: Missed taunt mismatch.");
+        if (hitTaunt != messages.GetMessage(305)) Console.WriteLine("Test 8 Failed: Hit taunt mismatch.");
         Console.WriteLine("Test 8 Passed.");
         Console.WriteLine();
     }

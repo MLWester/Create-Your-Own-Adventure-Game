@@ -1,33 +1,51 @@
 using System;
 
-public class Dragon {
+public class Dragon
+{
     private string Name { get; set; }
     private int Strength { get; set; }
     private int Health { get; set; }
     private int Agility { get; set; }
     private Weapon Weapon { get; set; }
-
+    private Messages Messages { get; set; }
     private Random random = new Random();
 
-    public Dragon(string name) {
+    public Dragon(string name, Messages messages)
+    {
         Name = name;
-        Strength = new Die().Roll(20); // Roll for strength
-        Agility = new Die().Roll(20); // Roll for agility
-        Health = new Die().Roll(20);  // Roll for health
-        Weapon = new Weapon("claws", 12, "##"); // Updated weapon initialization
-    }
-    
-    public string MissedMeTaunt() {
-        string[] taunts = { "Missed me, breath of a gnat!", "Is that all you've got? I've seen kittens with more fire in their paws!", "Try harder, human! You're making me yawn!", "Maybe if you squinted harder, you'd actually hit something!" };
-        return taunts[random.Next(taunts.Length)];
+        Messages = messages;
+        Strength = new Die().Roll(20);
+        Agility = new Die().Roll(20);
+        Health = new Die().Roll(20);
+        Weapon = new Weapon("claws", 12, "##");
     }
 
-    public string WasHitTaunt() {
-        string[] taunts = { "Ow! That actually stung a bit!", "Impressive! You might actually be worth toasting...", "That... was unexpected. But I assure you, it won't happen again.", "Well, I'll be! You have more bite than I thought!" };
-        return taunts[random.Next(taunts.Length)];
+    public string MissedMeTaunt()
+    {
+        int key = 301 + random.Next(0, 4); // 301–304
+        return Messages.GetMessage(key);
     }
 
-    public string DisplayStats() {
-        return $"Name: {Name}, Strength: {Strength}, Health: {Health}, Agility: {Agility}, Weapon: {Weapon.Type} (Max Damage: {Weapon.MaxDamage})";
+    public string WasHitTaunt()
+    {
+        int key = 305 + random.Next(0, 4); // 305–308
+        return Messages.GetMessage(key);
     }
+
+    public string DisplayStats()
+    {
+        return string.Format(Messages.GetMessage(309), Name, Strength, Health, Agility, Weapon.Type, Weapon.MaxDamage);
+    }
+
+    // Getter methods
+    public string GetName() => Name;
+    public int GetStrength() => Strength;
+    public int GetHealth() => Health;
+    public int GetAgility() => Agility;
+    public Weapon GetWeapon() => Weapon;
+
+    // Setter methods for testing
+    public void SetStrength(int value) => Strength = value;
+    public void SetAgility(int value) => Agility = value;
+    public void SetHealth(int value) => Health = value;
 }
