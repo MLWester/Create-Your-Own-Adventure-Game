@@ -27,6 +27,14 @@ public class Messages
             [112] = "Next, we will roll for health points. Type ‘roll’",
             [113] = "Invalid input. Please type 'roll' to roll for health points.",
             [114] = "Your character stats are: Strength: {0}, Agility: {1}, Health: {2}",
+            [115] = "Name: ",
+            [116] = "Race: ",
+            [117] = "Occupation: ",
+            [118] = "Strength: ",
+            [119] = "Agility: ",
+            [120] = "Health: ",
+            [121] = "Weapon: ",
+            [122] = "--- Final Stats ---",
             
             // Game Menu
             [201] = "Welcome to Choose Your Adventure Game",
@@ -78,6 +86,14 @@ public class Messages
             [112] = "Jetons maintenant pour les points de santé. Tapez 'roll'",
             [113] = "Entrée invalide. Tapez 'roll' pour lancer le dé de santé.",
             [114] = "Statistiques : Force : {0}, Agilité : {1}, Santé : {2}",
+            [115] = "Nom: ",
+            [116] = "Course: ",
+            [117] = "Profession: ",
+            [118] = "Force:",
+            [119] = "Agilité: ",
+            [120] = "Santé: ",
+            [121] = "Arme: ",
+            [122] = "--- Statistiques Finales ---",
             
             [201] = "Bienvenue dans le jeu Choisissez Votre Aventure",
             [202] = "Choisissez : 1. Créer un personnage ou 2. Quitter. Tapez '1' ou '2'",
@@ -127,6 +143,14 @@ public class Messages
             [112] = "Ahora tiraremos por puntos de salud. Escribe 'roll'",
             [113] = "Entrada no válida. Escribe 'roll' para tirar salud.",
             [114] = "Tus estadísticas: Fuerza: {0}, Agilidad: {1}, Salud: {2}",
+            [115] = "Nombre: ",
+            [116] = "Carrera: ",
+            [117] = "Ocupación: ",
+            [118] = "Fortaleza: ",
+            [119] = "Agilidad: ",
+            [120] = "Salud: ",
+            [121] = "Arma: ",
+            [122] = "--- Estadísticas Finales ---",
 
             [201] = "Bienvenido al juego Elige Tu Aventura",
             [202] = "Elige: 1. Crear personaje o 2. Salir. Escribe '1' o '2'",
@@ -235,6 +259,53 @@ public class Messages
                 ["Dwarf"] = Race.Dwarf,
                 ["Halfling"] = Race.Halfling
             }
+        };
+    }
+       public string GetLocalizedOccupationLabel(Occupation occ)
+    {
+        return CurrentLanguage switch
+        {
+            "French" => occ switch
+            {
+                Occupation.Fighter => "Guerrier",
+                Occupation.Magician => "Magicien",
+                Occupation.Thief => "Voleur",
+                Occupation.Archer => "Archer",
+                _ => occ.ToString()
+            },
+            "Spanish" => occ switch
+            {
+                Occupation.Fighter => "Luchador",
+                Occupation.Magician => "Mago",
+                Occupation.Thief => "Ladrón",
+                Occupation.Archer => "Arquero",
+                _ => occ.ToString()
+            },
+            _ => occ.ToString()
+        };
+    }
+
+    public string GetLocalizedRaceLabel(Race r)
+    {
+        return CurrentLanguage switch
+        {
+            "French" => r switch
+            {
+                Race.Elf => "Elfe",
+                Race.Human => "Humain",
+                Race.Dwarf => "Nain",
+                Race.Halfling => "Halfelin",
+                _ => r.ToString()
+            },
+            "Spanish" => r switch
+            {
+                Race.Elf => "Elfo",
+                Race.Human => "Humano",
+                Race.Dwarf => "Enano",
+                Race.Halfling => "Halfling",
+                _ => r.ToString()
+            },
+            _ => r.ToString()
         };
     }
 }

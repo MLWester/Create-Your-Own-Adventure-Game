@@ -62,7 +62,7 @@ public class Game
         player.CreateCharacterInteractive();
 
         Console.WriteLine(messages.GetMessage(209)); // Character successfully created
-        Console.WriteLine("\n--- Final Stats ---");
+        Console.WriteLine(messages.GetMessage(122)); // Character stats
         Console.WriteLine(player.DisplayStats());
 
         // Future: Continue to dragon combat, etc.

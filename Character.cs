@@ -138,13 +138,16 @@ public class Character
     // Display character stats as string
     public string DisplayStats()
     {
-        return $"Name: {name}\n" +
-               $"Race: {race?.ToString() ?? "None"}\n" +
-               $"Occupation: {occupation?.ToString() ?? "None"}\n" +
-               $"Strength: {strength}\n" +
-               $"Agility: {agility}\n" +
-               $"Health: {health}\n" +
-               $"Weapon: {(weapon != null ? weapon.Type : "None")}";
+        string raceLabel = race.HasValue ? messages.GetLocalizedRaceLabel(race.Value) : "None";
+        string occupationLabel = occupation.HasValue ? messages.GetLocalizedOccupationLabel(occupation.Value) : "None";
+
+        return $"{messages.GetMessage(115)}{name}\n" +
+            $"{messages.GetMessage(116)} {raceLabel}\n" +
+            $"{messages.GetMessage(117)} {occupationLabel}\n" +
+            $"{messages.GetMessage(118)} {strength}\n" +
+            $"{messages.GetMessage(119)} {agility}\n" +
+            $"{messages.GetMessage(120)} {health}\n" +
+            $"{messages.GetMessage(121)} {(weapon != null ? weapon.Type : "None")}";
     }
 
     // Accessors and setters for stats and properties
