@@ -18,7 +18,7 @@ public class Combat
             int playerAttackRoll = die.Roll(20);
             if (playerAttackRoll <= player.GetStrength())
             {
-                Console.WriteLine(string.Format(messages.GetMessage(315), dragon.GetName())); // You hit the dragon
+                Console.WriteLine(string.Format(messages.GetMessage(323), dragon.GetName())); // You hit the dragon
 
                 // Dragon defense
                 int dragonDefenseRoll = die.Roll(20);
