@@ -110,6 +110,18 @@ public class Messages
             [317] = "L'attaque du dragon inflige {0} points de dégâts. Vos points de vie sont maintenant {1}.",
             [318] = "Vous battez en retraite en léchant vos blessures...",
 
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
             // Branches
             [401] = "Vous marchez en montagne… Tapez « n » pour Nord. Tapez « s » pour Sud. Tapez « e » pour quitter le jeu.",
             [402] = "Vous prenez le chemin du Nord... Le dragon a un trésor derrière lui.",
