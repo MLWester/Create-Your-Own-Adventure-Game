@@ -63,7 +63,7 @@ public class Messages
             [403] = "You take the South path...still bored.",
             [404] = "Your magic ring gives you the stats on the dragon.",
             [405] = "The dragon says 'I am {0}. Leave or perish!",
-            [406] = "--- Dragon's Stats --- \nStrength: {1}\nHealth: {2}\nAgility: {3}\nWeapon: {4} (Max Damage: {5})"
+            [406] = "--- {0}'s Stats ---\nStrength: {1}\nHealth: {2}\nAgility: {3}\nWeapon: {4} (Max Damage: {5})"
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -116,7 +116,7 @@ public class Messages
             [403] = "Vous prenez le chemin du Sud...toujours ennuyé.",
             [404] = "Votre anneau magique vous donne les statistiques du dragon.",
             [405] = "Le dragon dit : « Je suis {0}. Pars ou péris !",
-            [406] = "--- Statistiques du dragon --- \nForce : {1}\nSanté : {2}\nAgilité : {3}\nArme : {4} (Dégâts max : {5})"
+            [406] = "--- Statistiques de {0} ---\nForce : {1}\nSanté : {2}\nAgilité : {3}\nArme : {4} (Dégâts max : {5})"
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -169,7 +169,7 @@ public class Messages
             [403] = "Toma el camino sur ... todavía aburrido.",
             [404] = "Tu anillo mágico te da las estadísticas del dragón.",
             [405] = "El dragón dice: 'Soy {0}. ¡Vete o muere!'",
-            [406] = "--- Estadísticas del dragón --- \nFuerza: {1}\nSalud: {2}\nAgilidad: {3}\nArma: {4} (Daño máx: {5})"
+            [406] = "--- Estadísticas de {0} ---\nFuerza: {1}\nSalud: {2}\nAgilidad: {3}\nArma: {4} (Daño máx: {5})"
         };
     }
 
