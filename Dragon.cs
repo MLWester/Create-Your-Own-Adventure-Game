@@ -34,7 +34,7 @@ public class Dragon
 
     public string DisplayStats()
     {
-        return string.Format(Messages.GetMessage(309), Name, Strength, Health, Agility, Weapon.Type, Weapon.MaxDamage);
+        return string.Format(Messages.GetMessage(406), Name, Strength, Health, Agility, Weapon.Type, Weapon.MaxDamage);
     }
 
     // Getter methods
