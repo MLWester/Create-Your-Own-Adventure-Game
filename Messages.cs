@@ -57,6 +57,19 @@ public class Messages
             [317] = "The dragon's attack delivers {0} damage points. Your health points is now {1}.",
             [318] = "You hastily retreat licking your wounds...",
 
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
             // Branches
             [401] = "You are walking in the mountains...Enter 'n' for North. Enter 's' for South. Enter 'e' for exit game",
             [402] = "You take the North path...The dragon has a hoard of hold behind it.",
@@ -64,6 +77,9 @@ public class Messages
             [404] = "Your magic ring gives you the stats on the dragon.",
             [405] = "The dragon says 'I am {0}. Leave or perish!",
             [406] = "--- {0}'s Stats ---\nStrength: {1}\nHealth: {2}\nAgility: {3}\nWeapon: {4} (Max Damage: {5})"
+        
+        
+        
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -117,11 +133,12 @@ public class Messages
        
        
        
-       
-       
-       
-       
-       
+    
+    
+    
+    
+    
+    
             // Branches
             [401] = "Vous marchez en montagne… Tapez « n » pour Nord. Tapez « s » pour Sud. Tapez « e » pour quitter le jeu.",
             [402] = "Vous prenez le chemin du Nord... Le dragon a un trésor derrière lui.",
@@ -129,6 +146,9 @@ public class Messages
             [404] = "Votre anneau magique vous donne les statistiques du dragon.",
             [405] = "Le dragon dit : « Je suis {0}. Pars ou péris !",
             [406] = "--- Statistiques de {0} ---\nForce : {1}\nSanté : {2}\nAgilité : {3}\nArme : {4} (Dégâts max : {5})"
+        
+        
+        
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -175,6 +195,19 @@ public class Messages
             [317] = "El ataque del dragón inflige {0} puntos de daño. Tus puntos de salud ahora son {1}.",
             [318] = "Te retiras rápidamente lamiendo tus heridas...",
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // Branches
             [401] = "Estás caminando por las montañas... Introduce 'n' para el norte. Introduce 's' para el sur. Introduce 'e' para salir del juego.",
             [402] = "Toma el camino del Norte... El dragón tiene un tesoro detrás de él.",
@@ -182,6 +215,8 @@ public class Messages
             [404] = "Tu anillo mágico te da las estadísticas del dragón.",
             [405] = "El dragón dice: 'Soy {0}. ¡Vete o muere!'",
             [406] = "--- Estadísticas de {0} ---\nFuerza: {1}\nSalud: {2}\nAgilidad: {3}\nArma: {4} (Daño máx: {5})"
+        
+        
         };
     }
 
