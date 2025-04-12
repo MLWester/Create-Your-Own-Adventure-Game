@@ -30,46 +30,53 @@ public class Character
 
     private void CreatePlayerOccupation()
     {
-        // Ask for and validate occupation
-        Occupation occ;
-        while (true)
         {
-            Console.WriteLine(messages.GetMessage(101));
-            string? input = Console.ReadLine()?.Trim();
-            if (!string.IsNullOrEmpty(input) && Enum.TryParse(input, true, out occ) && Enum.IsDefined(typeof(Occupation), occ))
-                break;
+            var occupationMap = messages.GetLocalizedOccupationMap();
+            Occupation occ;
 
-            Console.WriteLine(messages.GetMessage(102));
-        }
+            while (true)
+            {
+                Console.WriteLine(messages.GetMessage(101));
+                string? input = Console.ReadLine()?.Trim();
 
-        this.occupation = occ;
+                if (!string.IsNullOrEmpty(input) && occupationMap.TryGetValue(input, out occ))
+                    break;
 
-        // Assign weapon based on occupation
-        weapon = occ switch
-        {
-            Occupation.Fighter => new Weapon("long sword", 12, "-)=====>"),
-            Occupation.Magician => new Weapon("lightning bolt spell", 12, "zap~~~~~~"),
-            Occupation.Thief => new Weapon("dagger", 6, "-)==>"),
-            Occupation.Archer => new Weapon("long bow", 8, "} -->"),
-            _ => null
-        };
+                Console.WriteLine(messages.GetMessage(102));
+            }
 
-        if (weapon != null)
-        {
-            Console.WriteLine(string.Format(messages.GetMessage(103), this.occupation, weapon.Type));
-            Console.WriteLine(string.Format(messages.GetMessage(104), weapon.AsciiArt));
+            this.occupation = occ;
+
+            // Assign weapon based on occupation
+            weapon = occ switch
+            {
+                Occupation.Fighter => new Weapon("long sword", 12, "-)=====>"),
+                Occupation.Magician => new Weapon("lightning bolt spell", 12, "zap~~~~~~"),
+                Occupation.Thief => new Weapon("dagger", 6, "-)==>"),
+                Occupation.Archer => new Weapon("long bow", 8, "} -->"),
+                _ => null
+            };
+
+            if (weapon != null)
+            {
+                Console.WriteLine(string.Format(messages.GetMessage(103), this.occupation, weapon.Type));
+                Console.WriteLine(string.Format(messages.GetMessage(104), weapon.AsciiArt));
+            }
         }
     }
 
     private void CreatePlayerRace()
     {
         // Ask for and validate race
+        var raceMap = messages.GetLocalizedRaceMap();
         Race r;
+
         while (true)
         {
             Console.WriteLine(messages.GetMessage(105));
             string? input = Console.ReadLine()?.Trim();
-            if (!string.IsNullOrEmpty(input) && Enum.TryParse(input, true, out r) && Enum.IsDefined(typeof(Race), r))
+
+            if (!string.IsNullOrEmpty(input) && raceMap.TryGetValue(input, out r))
                 break;
 
             Console.WriteLine(messages.GetMessage(106));
@@ -131,13 +138,16 @@ public class Character
     // Display character stats as string
     public string DisplayStats()
     {
-        return $"Name: {name}\n" +
-               $"Race: {race?.ToString() ?? "None"}\n" +
-               $"Occupation: {occupation?.ToString() ?? "None"}\n" +
-               $"Strength: {strength}\n" +
-               $"Agility: {agility}\n" +
-               $"Health: {health}\n" +
-               $"Weapon: {(weapon != null ? weapon.Type : "None")}";
+        string raceLabel = race.HasValue ? messages.GetLocalizedRaceLabel(race.Value) : "None";
+        string occupationLabel = occupation.HasValue ? messages.GetLocalizedOccupationLabel(occupation.Value) : "None";
+
+        return $"{messages.GetMessage(115)}{name}\n" +
+            $"{messages.GetMessage(116)} {raceLabel}\n" +
+            $"{messages.GetMessage(117)} {occupationLabel}\n" +
+            $"{messages.GetMessage(118)} {strength}\n" +
+            $"{messages.GetMessage(119)} {agility}\n" +
+            $"{messages.GetMessage(120)} {health}\n" +
+            $"{messages.GetMessage(121)} {(weapon != null ? weapon.Type : "None")}";
     }
 
     // Accessors and setters for stats and properties
