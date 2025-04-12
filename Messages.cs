@@ -62,6 +62,10 @@ public class Messages
             [314] = "\nWith the last words of 'Arggh', you have defeated the dragon.",
             [315] = "{0} hits you.",
             [316] = "You successfully defended the attack.",
+
+            [317] = "The dragon's attack delivers {0} damage points. Your health points is now {1}.",
+            [318] = "You hastily retreat licking your wounds...",
+
             [317] = "The dragon's attack delivers {0} damage points. Your health points is now {1}.\n",
             [318] = "\nYou hastily retreat licking your wounds...",
             [319] = "Options: “r” for retreat and “a” for attack",
@@ -69,6 +73,7 @@ public class Messages
             [321] = "{0} attacks you!",
             [322] = "The dragon missed you.\n",
             [323] = "\nYou hit {0}."
+
 
 
 
@@ -131,6 +136,8 @@ public class Messages
             [314] = "\nAvec les derniers mots 'Arggh', vous avez vaincu le dragon.",
             [315] = "{0} vous frappe.",
             [316] = "Vous avez défendu avec succès l'attaque.",
+            [317] = "L'attaque du dragon inflige {0} points de dégâts. Vos points de vie sont maintenant {1}.",
+            [318] = "Vous battez en retraite en léchant vos blessures...",
             [317] = "L'attaque du dragon inflige {0} points de dégâts. Vos points de vie sont maintenant {1}.\n",
             [318] = "\nVous battez en retraite en léchant vos blessures...",
             [319] = "Options : « r » pour retraite et « a » pour attaque",
@@ -200,6 +207,10 @@ public class Messages
             [314] = "\nCon las últimas palabras de 'Arggh', has derrotado al dragón.",
             [315] = "{0} te golpea.",
             [316] = "Has defendido con éxito el ataque.",
+
+            [317] = "El ataque del dragón inflige {0} puntos de daño. Tus puntos de salud ahora son {1}.",
+            [318] = "Te retiras rápidamente lamiendo tus heridas...",
+
             [317] = "El ataque del dragón inflige {0} puntos de daño. Tus puntos de salud ahora son {1}.\n",
             [318] = "\nTe retiras rápidamente lamiendo tus heridas...",
             [319] = "Opciones: “r” para retirada y “a” para ataque",
@@ -217,6 +228,7 @@ public class Messages
 
 
             
+
         };
     }
 

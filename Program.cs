@@ -44,6 +44,10 @@ public class Program
         Game game = new Game(messages);
         game.StartGame();
 
+        // 10. Run branches unit tests
+        BranchesTests branchesTests = new BranchesTests();
+        branchesTests.RunAllTests();
+
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
     }

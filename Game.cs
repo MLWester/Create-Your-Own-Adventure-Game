@@ -53,6 +53,7 @@ public class Game
             Console.WriteLine(messages.GetMessage(204)); // Exit message
             return;
         }
+        Dragon dragon = new Dragon("Smaug", messages);
 
         Console.WriteLine(messages.GetMessage(205)); // Starting character creation
         Console.WriteLine(messages.GetMessage(206)); // Ask for name
@@ -65,10 +66,11 @@ public class Game
         Console.WriteLine(messages.GetMessage(122)); // Character stats
         Console.WriteLine(player.DisplayStats());
 
-        // Future: Continue to dragon combat, etc.
+        Branches branches = new Branches(player, dragon, messages);
+        branches.DisplayAdventureMenu();
 
         // ===== Begin Combat Section =====
-        Dragon dragon = new Dragon("Smaug", messages);
+
         Combat.AttackSequence(player, dragon, messages);
     } 
 }

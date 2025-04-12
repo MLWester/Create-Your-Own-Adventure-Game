@@ -48,12 +48,15 @@ public class DragonTests
         Messages messages = SetupMessages();
         Dragon dragon = new Dragon("Smaug", messages);
         string stats = dragon.DisplayStats();
-        bool isValidStats =
-            stats.Contains("Smaug") &&
-            stats.Contains("Strength:") &&
-            stats.Contains("Health:") &&
-            stats.Contains("Agility:") &&
-            stats.Contains("Weapon:");
+
+        bool hasName = stats.Contains(dragon.GetName());
+        bool hasWeapon = stats.Contains(dragon.GetWeapon().Type);
+        bool hasKeywordStrength = stats.ToLower().Contains("strength") || stats.ToLower().Contains("force") || stats.ToLower().Contains("fuerza");
+        bool hasKeywordHealth = stats.ToLower().Contains("health") || stats.ToLower().Contains("santé") || stats.ToLower().Contains("salud");
+        bool hasKeywordAgility = stats.ToLower().Contains("agility") || stats.ToLower().Contains("agilité") || stats.ToLower().Contains("agilidad");
+
+        bool isValidStats = hasName && hasWeapon && hasKeywordStrength && hasKeywordHealth && hasKeywordAgility;
+
         Console.WriteLine("Dragon test 4 - display stats test: " + (isValidStats ? "✅ PASS" : "❌ FAIL"));
     }
 }
