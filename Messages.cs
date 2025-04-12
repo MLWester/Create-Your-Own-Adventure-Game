@@ -34,7 +34,8 @@ public class Messages
             [119] = "Agility: ",
             [120] = "Health: ",
             [121] = "Weapon: ",
-            [122] = "\n--- Final Stats ---\n",
+            [122] = "Weapon ASCII Art: ",
+            [123] = "\n--- Final Stats ---\n",
             
             // Game Menu
             [201] = "Welcome to Choose Your Adventure Game",
