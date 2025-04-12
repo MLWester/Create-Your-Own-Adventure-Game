@@ -80,7 +80,9 @@ public class Messages
             [403] = "\nYou take the South path...still bored.",
             [404] = "Your magic ring gives you the stats on the dragon.",
             [405] = "\nThe dragon says 'I am {0}. Leave or perish!",
-            [406] = "\n--- {0}'s Stats ---\nStrength: {1}\nHealth: {2}\nAgility: {3}\nWeapon: {4} (Max Damage: {5})\n"
+            [406] = "\n--- {0}'s Stats ---\nStrength: {1}\nHealth: {2}\nAgility: {3}\nWeapon: {4} (Max Damage: {5})\n",
+            [407] = "Invalid input. Please enter 'n', 's', or 'e'.",
+            [408] = "Invalid input. Please enter 'r' or 'a'."
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -148,7 +150,9 @@ public class Messages
             [403] = "\nVous prenez le chemin du Sud...toujours ennuyé.",
             [404] = "Votre anneau magique vous donne les statistiques du dragon.",
             [405] = "\nLe dragon dit : « Je suis {0}. Pars ou péris !", 
-            [406] = "\n--- Statistiques de {0} ---\nForce : {1}\nSanté : {2}\nAgilité : {3}\nArme : {4} (Dégâts max : {5})\n"        
+            [406] = "\n--- Statistiques de {0} ---\nForce : {1}\nSanté : {2}\nAgilité : {3}\nArme : {4} (Dégâts max : {5})\n",
+            [407] = "Entrée non valide. Veuillez saisir « n », « s » ou « e ».",
+            [408] = "Entrée non valide. Veuillez saisir « r » ou « a »."        
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -218,7 +222,9 @@ public class Messages
             [403] = "\nToma el camino sur ... todavía aburrido.",
             [404] = "Tu anillo mágico te da las estadísticas del dragón.",
             [405] = "\nEl dragón dice: 'Soy {0}. ¡Vete o muere!'",
-            [406] = "\n--- Estadísticas de {0} ---\nFuerza: {1}\nSalud: {2}\nAgilidad: {3}\nArma: {4} (Daño máx: {5})\n"
+            [406] = "\n--- Estadísticas de {0} ---\nFuerza: {1}\nSalud: {2}\nAgilidad: {3}\nArma: {4} (Daño máx: {5})\n",
+            [407] = "Entrada no válida. Por favor, introduzca 'n', 's' o 'e'.",
+            [408] = "Entrada no válida. Por favor, introduzca 'r' o 'a'."
         };
     }
 

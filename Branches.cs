@@ -30,7 +30,7 @@ public class Branches
                 EndGame();
                 break;
             default:
-                Console.WriteLine(messages.GetMessage(203)); // Invalid choice
+                Console.WriteLine(messages.GetMessage(407)); // Invalid choice
                 DisplayAdventureMenu();
                 break;
         }
@@ -66,7 +66,7 @@ public class Branches
         }
         else
         {
-            Console.WriteLine(messages.GetMessage(203)); // Invalid choice
+            Console.WriteLine(messages.GetMessage(408)); // Invalid choice
             NorthPath();
         }
     }
