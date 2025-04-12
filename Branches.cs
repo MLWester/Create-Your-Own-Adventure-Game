@@ -16,7 +16,7 @@ public class Branches
     public void DisplayAdventureMenu()
     {
         Console.WriteLine(messages.GetMessage(401)); // Adventure menu
-        string choice = Console.ReadLine()?.ToLower();
+        string? choice = Console.ReadLine()?.ToLower();
 
         switch (choice)
         {
@@ -53,9 +53,9 @@ public class Branches
         Console.ResetColor();
         //Console.WriteLine(messages.GetMessage(208)); // Dragon stats
         Console.WriteLine(dragon.DisplayStats());
-        Console.WriteLine("Options: “r” for retreat and “a” for attack"); // this retreat option needs to be redone so that the corresponding message from Messages.cs but I'm don't want to mess anything up by merging the main branch into it yet.
+        Console.WriteLine(messages.GetMessage(319)); 
 
-        string choice = Console.ReadLine()?.ToLower();
+        string? choice = Console.ReadLine()?.ToLower();
         if (choice == "r")
         {
             Retreat();
