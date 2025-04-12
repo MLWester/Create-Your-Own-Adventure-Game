@@ -69,6 +69,17 @@ public class Messages
             [321] = "{0} attacks you!",
             [322] = "The dragon missed you.\n",
             [323] = "\nYou hit {0}."
+
+
+
+
+
+
+
+
+
+
+
         };
 
         AllLanguages["French"] = new Dictionary<int, string>
@@ -127,6 +138,17 @@ public class Messages
             [321] = "{0} vous attaque !",
             [322] = "Le dragon t'a manqué.\n",
             [323] = "\nTu as frappé {0}."
+            
+
+
+
+
+
+
+
+
+
+            
         };
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
@@ -185,6 +207,16 @@ public class Messages
             [321] = "{0} te ataca!",
             [322] = "El dragón te extrañó.\n",
             [323] = "\nGolpeaste a {0}."
+
+
+
+
+
+
+
+
+
+            
         };
     }
 
