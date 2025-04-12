@@ -44,6 +44,7 @@ public class Branches
         DisplayAdventureMenu();
     }
 
+    // The North path is where the dragon encounter happens. I think we should have a message that says "You are now on the North path" or something like that.
     private void NorthPath()
     {
         Console.WriteLine(messages.GetMessage(402)); // North path intro
