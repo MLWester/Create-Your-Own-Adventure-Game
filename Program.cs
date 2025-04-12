@@ -32,21 +32,21 @@ public class Program
         // 7. Run combat system test
         CombatTests.RunAttackSequenceTest();
 
-        // 8. Example use of Die class
+        // 8. Run branches unit tests
+        BranchesTests branchesTests = new BranchesTests();
+        branchesTests.RunAllTests();
+
+        // 9. Example use of Die class
         Die die = new Die();
         int rollResult = die.Roll(20);
         Console.WriteLine($"You rolled a dice value of {rollResult}");
 
-        // 9. Start the actual game
+        // 10. Start the actual game
         Console.WriteLine("\n=== Game Start ===\n");
         Messages messages = new Messages();
         messages.ReadDictionary("English"); // You can change to "French" or "Spanish"
         Game game = new Game(messages);
         game.StartGame();
-
-        // 10. Run branches unit tests
-        BranchesTests branchesTests = new BranchesTests();
-        branchesTests.RunAllTests();
 
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();

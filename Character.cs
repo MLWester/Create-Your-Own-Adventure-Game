@@ -93,7 +93,7 @@ public class Character
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
             Console.WriteLine(messages.GetMessage(109));
 
-        int str = die.Roll(6);
+        int str = die.Roll(20);
         if (race == Race.Human || race == Race.Elf || race == Race.Dwarf)
             str += die.Roll(4);
         else if (race == Race.Halfling)
@@ -109,7 +109,7 @@ public class Character
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
             Console.WriteLine(messages.GetMessage(111));
 
-        int agi = die.Roll(6);
+        int agi = die.Roll(20);
         if (race == Race.Halfling || race == Race.Elf)
             agi += die.Roll(4);
 
@@ -123,7 +123,7 @@ public class Character
         while (Console.ReadLine()?.Trim().ToLower() != "roll")
             Console.WriteLine(messages.GetMessage(113));
 
-        int hp = die.Roll(6);
+        int hp = die.Roll(20);
         if (race == Race.Human || race == Race.Elf || race == Race.Dwarf)
             hp += strength;
 
