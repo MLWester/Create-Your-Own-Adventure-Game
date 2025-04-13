@@ -68,9 +68,5 @@ public class Game
 
         Branches branches = new Branches(player, dragon, messages);
         branches.DisplayAdventureMenu();
-
-        // ===== Begin Combat Section =====
-
-        Combat.AttackSequence(player, dragon, messages);
     } 
 }
