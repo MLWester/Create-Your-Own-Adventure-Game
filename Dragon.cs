@@ -45,7 +45,7 @@ public class Dragon
     public Weapon GetWeapon() => Weapon;
 
     // Setter methods for testing
-    public void SetStrength(int value) => Strength = value;
-    public void SetAgility(int value) => Agility = value;
-    public void SetHealth(int value) => Health = value;
+    public void SetStrength(int value) => Strength = Math.Max(0, value); // Ensure strength is not negative
+    public void SetAgility(int value) => Agility = Math.Max(0, value);   // Ensure agility is not negative
+    public void SetHealth(int value) => Health = Math.Max(0, value);     // Ensure health is not negative
 }
