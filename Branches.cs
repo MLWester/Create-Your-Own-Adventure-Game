@@ -39,12 +39,9 @@ public class Branches
     private void SouthPath()
     {
         Console.WriteLine(messages.GetMessage(403)); // South path message
-        // I don't think this message needs to be here. It says "Character creation starting..." We could just let it go back to the menu or change it.
-        Console.WriteLine(messages.GetMessage(205)); // Return to menu
         DisplayAdventureMenu();
     }
 
-    // The North path is where the dragon encounter happens. I think we should have a message that says "You are now on the North path" or something like that.
     private void NorthPath()
     {
         Console.WriteLine(messages.GetMessage(402)); // North path intro
