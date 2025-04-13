@@ -83,8 +83,6 @@ public class Character
         }
     }
 
-
-
     private void CreatePlayerStrength()
     {
         Die die = new Die();
@@ -98,7 +96,7 @@ public class Character
         else if (race == Race.Halfling)
             str -= die.Roll(4);
 
-        this.strength = str;
+        this.strength = Math.Max(0, str); // Ensure strength is not negative
     }
 
     private void CreatePlayerAgility()
@@ -112,7 +110,7 @@ public class Character
         if (race == Race.Halfling || race == Race.Elf)
             agi += die.Roll(4);
 
-        this.agility = agi;
+        this.agility = Math.Max(0, agi); // Ensure agility is not negative
     }
 
     private void CreatePlayerHealth()
@@ -126,7 +124,7 @@ public class Character
         if (race == Race.Human || race == Race.Elf || race == Race.Dwarf)
             hp += strength;
 
-        this.health = hp;
+        this.health = Math.Max(0, hp); // Ensure health is not negative
         Console.WriteLine(string.Format(messages.GetMessage(114), strength, agility, health));
     }
 
@@ -152,7 +150,6 @@ public class Character
             $"{messages.GetMessage(121)} {weaponType}\n" +
             $"{messages.GetMessage(104).Replace("{0}", weaponArt)}";
     }
-
 
     // Accessors and setters for stats and properties
     public Weapon? GetWeapon() => weapon;
