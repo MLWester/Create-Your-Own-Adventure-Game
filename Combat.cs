@@ -80,13 +80,23 @@ public class Combat
             }
 
             // Player decision to retreat or attack
-            Console.WriteLine(messages.GetMessage(319)); // Ask if player wants to continue
-            string? choice = Console.ReadLine()?.ToLower();
-            if (choice == "r")
+            string? choice;
+            do
             {
-                Console.WriteLine(messages.GetMessage(318));
-                return;
-            }
+                Console.WriteLine(messages.GetMessage(319)); // Ask if player wants to continue
+                choice = Console.ReadLine()?.ToLower();
+
+                if (choice == "r")
+                {
+                    Console.WriteLine(messages.GetMessage(318));
+                    return;
+                }
+                else if (choice != "a")
+                {
+                    Console.WriteLine(messages.GetMessage(408)); // Invalid input
+                }
+
+            } while (choice != "a");
         }
     }
 }

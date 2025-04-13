@@ -13,12 +13,12 @@ public class Messages
         AllLanguages["English"] = new Dictionary<int, string>
         {
             // Character Creation
-            [101] = "\nWhat is the occupation of your character? Fighter, Magician, Thief, or Archer?",
-            [102] = "Invalid input. Please enter one of the following: Fighter, Magician, Thief, or Archer.",
+            [101] = "\nWhat is the occupation of your character? 1. Fighter, 2. Magician, 3. Thief, or 4. Archer?",
+            [102] = "Invalid input. Please enter a number: 1. Fighter, 2. Magician, 3. Thief, or 4. Archer.",
             [103] = "You have chosen {0} and your weapon is {1}.",
             [104] = "Weapon ASCII Art: {0}",
-            [105] = "\nWhat is the race of your character? Elf, Human, Dwarf, or Halfling?",
-            [106] = "Invalid input. Please enter one of the following: Elf, Human, Dwarf, or Halfling.",
+            [105] = "\nWhat is the race of your character? 1. Elf, 2. Human, 3. Dwarf, or 4. Halfling?",
+            [106] = "Invalid input. Please enter a number: 1. Elf, 2. Human, 3. Dwarf, or 4. Halfling.",
             [107] = "You have chosen {0} as your race.",
             [108] = "\nNext, we are going to roll for strength. Type ‘roll’",
             [109] = "Invalid input. Please type 'roll' to roll for strength.",
@@ -91,16 +91,16 @@ public class Messages
 
         AllLanguages["French"] = new Dictionary<int, string>
         {
-            [101] = "\nQuelle est la profession de votre personnage ? Guerrier, Magicien, Voleur ou Archer ?",
-            [102] = "Entrée invalide. Veuillez entrer : Guerrier, Magicien, Voleur ou Archer.",
+            [101] = "\nQuelle est la profession de votre personnage ? 1. Guerrier, 2. Magicien, 3. Voleur ou 4. Archer",
+            [102] = "Entrée invalide. Veuillez saisir un chiffre : 1. Guerrier, 2. Magicien, 3. Voleur ou 4. Archer.",
             [103] = "Vous avez choisi {0} et votre arme est {1}.",
             [104] = "Art ASCII de l'arme : {0}",
-            [105] = "\nQuelle est la race de votre personnage ? Elfe, Humain, Nain ou Halfelin ?",
-            [106] = "Entrée invalide. Veuillez entrer : Elfe, Humain, Nain ou Halfelin.",
+            [105] = "\nQuelle est la race de votre personnage ? 1. Elfe, 2. Humain, 3. Nain ou 4. Halfelin ?",
+            [106] = "Entrée invalide. Veuillez entrer un numéro : 1. Elfe, 2. Humain, 3. Nain ou 4. Halfelin.",
             [107] = "Vous avez choisi {0} comme race.",
             [108] = "\nJetons maintenant pour la force. Tapez 'roll'",
             [109] = "Entrée invalide. Tapez 'roll' pour lancer le dé de force.",
-            [110] = "Jetons maintenant pour l'agilité. Tapez 'roll'",
+            [110] = "\nJetons maintenant pour l'agilité. Tapez 'roll'",
             [111] = "Entrée invalide. Tapez 'roll' pour lancer le dé d'agilité.",
             [112] = "\nJetons maintenant pour les points de santé. Tapez 'roll'",
             [113] = "Entrée invalide. Tapez 'roll' pour lancer le dé de santé.",
@@ -112,7 +112,8 @@ public class Messages
             [119] = "Agilité: ",
             [120] = "Santé: ",
             [121] = "Arme: ",
-            [122] = "\n--- Statistiques Finales ---\n",
+            [122] = "Art ASCII de l'arme : ",
+            [123] = "\n--- Statistiques Finales ---\n",
             
             [201] = "Bienvenue dans le jeu Choisissez Votre Aventure",
             [202] = "Choisissez : 1. Créer un personnage ou 2. Quitter. Tapez '1' ou '2'",
@@ -162,16 +163,16 @@ public class Messages
 
         AllLanguages["Spanish"] = new Dictionary<int, string>
         {
-            [101] = "\n¿Cuál es la ocupación de tu personaje? ¿Luchador, Mago, Ladrón o Arquero?",
-            [102] = "Entrada no válida. Introduzca: Luchador, Mago, Ladrón o Arquero.",
+            [101] = "\n¿Cuál es la ocupación de tu personaje? 1. Luchador, 2. Mago, 3. Ladrón o 4. Arquero",
+            [102] = "Entrada no válida. Introduzca un número: 1. Luchador, 2. Mago, 3. Ladrón o 4. Arquero.",
             [103] = "Has elegido {0} y tu arma es {1}.",
             [104] = "Arte ASCII del arma: {0}",
-            [105] = "\n¿Cuál es la raza de tu personaje? ¿Elfo, Humano, Enano o Halfling?",
-            [106] = "Entrada no válida. Introduzca: Elfo, Humano, Enano o Halfling.",
+            [105] = "\n¿Cuál es la raza de tu personaje? 1. Elfo, 2. Humano, 3. Enano 4. Halfling?",
+            [106] = "Entrada no válida. Introduzca un número: 1. Elfo, 2. Humano, 3. Enano o 4. Halfling.",
             [107] = "Has elegido {0} como raza.",
             [108] = "\nA continuación, tiraremos por fuerza. Escribe 'roll'",
             [109] = "Entrada no válida. Escribe 'roll' para tirar fuerza.",
-            [110] = "Ahora tiraremos por agilidad. Escribe 'roll'",
+            [110] = "\nAhora tiraremos por agilidad. Escribe 'roll'",
             [111] = "Entrada no válida. Escribe 'roll' para tirar agilidad.",
             [112] = "\nAhora tiraremos por puntos de salud. Escribe 'roll'",
             [113] = "Entrada no válida. Escribe 'roll' para tirar salud.",
@@ -183,7 +184,8 @@ public class Messages
             [119] = "Agilidad: ",
             [120] = "Salud: ",
             [121] = "Arma: ",
-            [122] = "\n--- Estadísticas Finales ---\n",
+            [122] = "Arte ASCII del arma: ",
+            [123] = "\n--- Estadísticas Finales ---\n",
 
             [201] = "Bienvenido al juego Elige Tu Aventura",
             [202] = "Elige: 1. Crear personaje o 2. Salir. Escribe '1' o '2'",

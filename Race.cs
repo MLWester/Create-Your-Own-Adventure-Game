@@ -1,7 +1,7 @@
 public enum Race
 {
-    Human,
     Elf,
+    Human,
     Dwarf,
     Halfling
 }

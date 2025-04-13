@@ -63,7 +63,6 @@ public class Game
         player.CreateCharacterInteractive();
 
         Console.WriteLine(messages.GetMessage(209)); // Character successfully created
-        Console.WriteLine(messages.GetMessage(122)); // Character stats
         Console.WriteLine(player.DisplayStats());
 
         Branches branches = new Branches(player, dragon, messages);
